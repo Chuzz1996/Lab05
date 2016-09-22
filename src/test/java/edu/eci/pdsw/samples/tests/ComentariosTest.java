@@ -24,6 +24,16 @@ import static org.junit.Assert.*;
  *
  * @author hcadavid
  */
+/**
+ * CLASE 1: El comentario tiene asociado un usuario
+ * Falla: No
+ * Nombre: ComentarioAgregado
+ * 
+ * CLASE 2: El comentario no tiene asociado un un usuario
+ * Falla: Si
+ * Nombre: ComentarioNoAgregado
+ * 
+ **/
 public class ComentariosTest {
     
     public ComentariosTest() {
@@ -34,9 +44,21 @@ public class ComentariosTest {
     }
     
     @Test
-    public void registroPacienteTest(){
-        
+    public void ComentarioAgregado(){
+       Usuario persona = new Usuario("felipe.losada@gmail.com","Felipe");
+       Comentario comentarioAgregado = new Comentario(persona,"Esta muy chebre",Date.getDate());
+        assertEquals(persona, comentarioAgregado.getAutor());
+        assertEquals("Esta muy chebre",cometarioAgregado.getComentario());
+        assertEquals(Date.getDate(), comentarioAgregado.getFechayHora());
     }
-    
+
+    @Test
+    public void ComentarioNoAgregado(){
+        try{
+            Comentario comentarioAgregado = new Comentario(null,"Esta muy chebre",Date.getDate());
+        }catch(e ExcepcionServiciosForos){
+            
+        }
+    }
     
 }
