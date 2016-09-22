@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ###Escuela Colombiana de Ingeniería
 ###Procesos de desarrollo de software – PDSW
 
@@ -176,3 +177,6 @@ git rebase --continue
 	[Git – rebasing – step by step](http://gitforteams.com/resources/rebasing.html)
 
 	[Guía rápida GIT](http://rogerdudler.github.io/git-guide/)
+=======
+# Lab05
+>>>>>>> 4a069885a2478bcba7c96eb79386a3da8a782cc0
