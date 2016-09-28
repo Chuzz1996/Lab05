@@ -18,6 +18,8 @@ package edu.eci.pdsw.samples.tests;
 import edu.eci.pdsw.samples.services.*;
 import edu.eci.pdsw.samples.entities.*;
 import java.util.Date;
+import edu.eci.pdsw.samples.entities.*;
+
 import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;
