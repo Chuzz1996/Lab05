@@ -61,9 +61,9 @@ public class EntradasForoTest {
        EntradaForo entradaForo = new EntradaForo(12,persona,"No me gusta","Opinion",date);
        ServiciosForoStub foros = new ServiciosForoStub();
        foros.registrarNuevaEntradaForo(entradaForo);
-       assertEquals(consultarEntradaForo(12).getTitulo,"Opinion");
-       assertEquals(consultarEntradaForo(12).getAutor,persona);
-       assertEquals(consultarEntradaForo(12).getComentario,"No me gusta");
+       assertEquals(foros.consultarEntradaForo(12).getTitulo(),"Opinion");
+       assertEquals(foros.consultarEntradaForo(12).getAutor(),persona);
+       assertEquals(foros.consultarEntradaForo(12).getComentario(),"No me gusta");
     }
     
 }
