@@ -47,15 +47,15 @@ public class EntradasForoTest {
 
     
     @Test
-    public void ComentarioAgregadoExitoso() throws ExcepcionServiciosForos{
+    public void registrarNuevaEntradaForoDebeFuncionar() throws ExcepcionServiciosForos{
        Usuario persona = new Usuario("johan9106@gmail.com","Johan");
        Date date =new Date(2010,6,27);
        EntradaForo entradaForo = new EntradaForo(12,persona,"No me gusta","Opinion",date);
        ServiciosForoStub foros = new ServiciosForoStub();
        foros.registrarNuevaEntradaForo(entradaForo);
-       assertEquals(foros.consultarEntradaForo(12).getTitulo(),"Opinion");
-       assertEquals(foros.consultarEntradaForo(12).getAutor(),persona);
-       assertEquals(foros.consultarEntradaForo(12).getComentario(),"No me gusta");
+       assertEquals(foros.consultarEntradaForo(0).getTitulo(),"Opinion");
+       assertEquals(foros.consultarEntradaForo(0).getAutor(),persona);
+       assertEquals(foros.consultarEntradaForo(0).getComentario(),"No me gusta");
     }
     
 }
