@@ -17,6 +17,7 @@
 package edu.eci.pdsw.samples.tests;
 
 import edu.eci.pdsw.samples.entities.*;
+import edu.eci.pdsw.samples.services.ExcepcionServiciosForos;
 import edu.eci.pdsw.samples.services.ServiciosForoStub;
 import java.sql.Date;
 
@@ -55,7 +56,7 @@ public class EntradasForoTest {
     
     
         @Test
-    public void ComentarioAgregadoExitoso(){
+    public void ComentarioAgregadoExitoso() throws ExcepcionServiciosForos{
        Usuario persona = new Usuario("johan9106@gmail.com","Johan");
        Date date =new Date(2010,6,27);
        EntradaForo entradaForo = new EntradaForo(12,persona,"No me gusta","Opinion",date);
