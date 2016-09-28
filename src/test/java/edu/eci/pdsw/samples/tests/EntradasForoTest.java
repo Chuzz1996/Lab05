@@ -16,8 +16,8 @@
  */
 package edu.eci.pdsw.samples.tests;
 
+import edu.eci.pdsw.samples.services.*;
 import edu.eci.pdsw.samples.entities.*;
-import edu.eci.pdsw.samples.services.ServiciosForoStub;
 import java.util.*;
 import org.junit.Before;
 import org.junit.Test;
@@ -40,28 +40,20 @@ import static org.junit.Assert.*;
  */
 public class EntradasForoTest {
     
-    public EntradasForoTest() {
-    }
-    
-    @Before
-    public void setUp() {
-    }
     
     @Test
-    public void registroPacienteTest(){
-        
-    }
-    
-    
-        @Test
     public void ComentarioAgregadoExitoso(){
        Usuario persona = new Usuario("johan9106@gmail.com","Johan");
-       EntradaForo entradaForo = new EntradaForo(12,persona,"No me gusta","Opinion");
+       EntradaForo entradaForo = new EntradaForo(12,persona,"No me gusta","Opinion",new java.sql.Date(2016,9,28));
        ServiciosForoStub foros = new ServiciosForoStub();
-       foros.registrarNuevaEntradaForo(entradaForo);
-       assertEquals(consultarEntradaForo(12).getTitulo,"Opinion");
-       assertEquals(consultarEntradaForo(12).getAutor,persona);
-       assertEquals(consultarEntradaForo(12).getComentario,"No me gusta");
+       try{
+           foros.registrarNuevaEntradaForo(entradaForo);
+           assertEquals(foros.consultarEntradaForo(entradaForo).getTitulo(),"Opinion");
+           assertEquals(foros.consultarEntradaForo(entradaForo).getAutor(),persona);
+           assertEquals(foros.consultarEntradaForo(entradaForo).getComentario(),"No me gusta");
+       catch(ExcepcionServiciosForos ex){
+               
+        }
     }
     
 }
