@@ -15,7 +15,9 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 package edu.eci.pdsw.samples.tests;
-
+import edu.eci.pdsw.samples.services.*;
+import edu.eci.pdsw.samples.entities.*;
+import java.util.Date;
 import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;
@@ -52,20 +54,19 @@ import static org.junit.Assert.*;
  **/
 public class ComentariosTest {
     
-    public ComentariosTest() {
-    }
-    
-    @Before
-    public void setUp() {
-    }
-    
     @Test
-    public void ComentarioAgregadoExitoso(){
+    public void EntradaAlForo(){
        Usuario persona = new Usuario("felipe.losada@gmail.com","Felipe");
-       Comentario comentarioAgregado = new Comentario(persona,"Esta muy chebre",Date.getDate());
-        assertEquals(persona, comentarioAgregado.getAutor());
-        assertEquals("Esta muy chebre",cometarioAgregado.getComentario());
-        assertEquals(Date.getDate(), comentarioAgregado.getFechayHora());
-    }
+       Comentario comentarioAgregado = new Comentario(persona,"Esta muy chebre",new java.sql.Date(2016,9,28));
+       try{
+           EntradaForo Ef = new EntradaForo(80, persona, comentarioAgregado.getContenido(), "Experiencia", new java.sql.Date(2016,9,28));
+           ServiciosForoStub sft = new ServiciosForoStub();
+           sft.registrarNuevaEntradaForo(Ef);
+           EntradaForo x = sft.consultarEntradaForo(80);
+           assertEquals("No consulta comentario agregado correctamente",x.getIdentificador(),Ef.getIdentificador());
+       }catch(ExcepcionServiciosForos ex){
+           fail("Arroja excepcion agregando consultando entrada al foro");
+       }
     }
 }
+

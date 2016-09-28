@@ -19,18 +19,25 @@ package edu.eci.pdsw.samples.managedbeans;
 
 import edu.eci.pdsw.samples.services.ServiciosForo;
 import java.io.Serializable;
-import javax.annotation.ManagedBean;
-import javax.enterprise.context.SessionScoped;
+import javax.faces.bean.ManagedBean;
+import javax.faces.bean.SessionScoped;
 
 /**
  *
- * @author hcadavid
+ * @author Felipe Losada
  */
-@ManagedBean
+@ManagedBean(name="RegistroBean")
 @SessionScoped
 public class RegistroForosBean implements Serializable{
     
-    ServiciosForo sp=ServiciosForo.getInstance();
+    public static ServiciosForo sp=ServiciosForo.getInstance();
     
+    public void setSp(ServiciosForo sp){
+        this.sp = sp;
+    }
+    
+    public ServiciosForo getSp(){
+        return sp;
+    }
     
 }
