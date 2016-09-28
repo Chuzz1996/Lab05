@@ -84,14 +84,19 @@ public class EntradasForoTest {
     
       @Test
     public void agregarRespuestaForoDebeFallar() throws ExcepcionServiciosForos{
-       Usuario persona = new Usuario();
+        Usuario persona = new Usuario();
        Date date =new Date(2010,6,27);
        EntradaForo entradaForo = new EntradaForo(12,persona,"No me gusta","Opinion",date);
        ServiciosForoStub foros = new ServiciosForoStub();
        foros.registrarNuevaEntradaForo(entradaForo);
-       List<EntradaForo> temp =new ArrayList<EntradaForo>();
-       List<EntradaForo> temp2 =new ArrayList<EntradaForo>();
-       assertEquals(temp.size(),temp2.size());
+       
+       try{
+           Comentario c = new Comentario(persona,"Esta muy chebre",new java.sql.Date(2016,9,28));
+           foros.agregarRespuestaForo(0, c);
+           fail("No Arroja excepcion agregando respuestas al foro sin usuario");
+       }catch(ExcepcionServiciosForos ex){
+           
+       }
     } 
     
 }
