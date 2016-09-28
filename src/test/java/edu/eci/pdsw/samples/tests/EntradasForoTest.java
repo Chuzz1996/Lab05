@@ -16,6 +16,9 @@
  */
 package edu.eci.pdsw.samples.tests;
 
+import edu.eci.pdsw.samples.entities.*;
+import edu.eci.pdsw.samples.services.ServiciosForoStub;
+import java.util.*;
 import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;
@@ -23,6 +26,17 @@ import static org.junit.Assert.*;
 /**
  *
  * @author hcadavid
+ * 
+ * 
+ * clases de equivalencia
+ * 
+ * clase1:si el comentario no tiene asociado un usuario
+ * falla:si
+ * nombre:registrarNuevaEntradaForoDebeFallar
+ * 
+ * clase2:si el comentario tiene asociado un usuario
+ * falla:no
+ * nombre:registrarNuevaEntradaForoDebeFuncionar
  */
 public class EntradasForoTest {
     
@@ -38,5 +52,16 @@ public class EntradasForoTest {
         
     }
     
+    
+        @Test
+    public void ComentarioAgregadoExitoso(){
+       Usuario persona = new Usuario("johan9106@gmail.com","Johan");
+       EntradaForo entradaForo = new EntradaForo(12,persona,"No me gusta","Opinion");
+       ServiciosForoStub foros = new ServiciosForoStub();
+       foros.registrarNuevaEntradaForo(entradaForo);
+       assertEquals(consultarEntradaForo(12).getTitulo,"Opinion");
+       assertEquals(consultarEntradaForo(12).getAutor,persona);
+       assertEquals(consultarEntradaForo(12).getComentario,"No me gusta");
+    }
     
 }

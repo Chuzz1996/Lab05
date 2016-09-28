@@ -74,8 +74,7 @@ public abstract class ServiciosForo {
      * @param idforo identificador de la entredaForo a la cual se agregara
      * la respuesta
      * @param c el comentario a ser agregado
-     * @throws ExcepcionServiciosForos si el comentario no tiene asociado un
-     * usuario
+     * @throws ExcepcionServiciosForos si el comentario no tiene asociado un usuario
      */
     public abstract void agregarRespuestaForo(int idforo,Comentario c) throws ExcepcionServiciosForos;
     
