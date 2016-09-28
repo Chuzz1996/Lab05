@@ -18,7 +18,8 @@ package edu.eci.pdsw.samples.tests;
 
 import edu.eci.pdsw.samples.entities.*;
 import edu.eci.pdsw.samples.services.ServiciosForoStub;
-import java.util.*;
+import java.sql.Date;
+
 import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;
@@ -56,7 +57,8 @@ public class EntradasForoTest {
         @Test
     public void ComentarioAgregadoExitoso(){
        Usuario persona = new Usuario("johan9106@gmail.com","Johan");
-       EntradaForo entradaForo = new EntradaForo(12,persona,"No me gusta","Opinion");
+       Date date =new Date(2010,6,27);
+       EntradaForo entradaForo = new EntradaForo(12,persona,"No me gusta","Opinion",date);
        ServiciosForoStub foros = new ServiciosForoStub();
        foros.registrarNuevaEntradaForo(entradaForo);
        assertEquals(consultarEntradaForo(12).getTitulo,"Opinion");

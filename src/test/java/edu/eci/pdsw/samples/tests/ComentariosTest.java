@@ -16,6 +16,9 @@
  */
 package edu.eci.pdsw.samples.tests;
 
+import edu.eci.pdsw.samples.entities.*;
+
+import java.sql.Date;
 import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;
@@ -62,10 +65,11 @@ public class ComentariosTest {
     @Test
     public void ComentarioAgregadoExitoso(){
        Usuario persona = new Usuario("felipe.losada@gmail.com","Felipe");
-       Comentario comentarioAgregado = new Comentario(persona,"Esta muy chebre",Date.getDate());
+       Date date =new Date(2010,6,27);
+       Comentario comentarioAgregado = new Comentario(persona,"Esta muy chebre",date);
         assertEquals(persona, comentarioAgregado.getAutor());
-        assertEquals("Esta muy chebre",cometarioAgregado.getComentario());
-        assertEquals(Date.getDate(), comentarioAgregado.getFechayHora());
+        assertEquals("Esta muy chebre",comentarioAgregado.getContenido());
+
     }
     }
-}
+
