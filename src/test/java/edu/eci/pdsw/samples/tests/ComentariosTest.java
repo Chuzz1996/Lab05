@@ -22,16 +22,32 @@ import static org.junit.Assert.*;
 
 /**
  *
- * @author hcadavid
+ * @author Felipe Losada
  */
 /**
- * CLASE 1: El comentario tiene asociado un usuario
+ * CLASE 1: El comentario tiene asociado un usuario,
+ * y es agregado correctamente.
  * Falla: No
- * Nombre: ComentarioAgregado
+ * Nombre: ComentarioAgregadoExitoso
  * 
- * CLASE 2: El comentario no tiene asociado un un usuario
+ * CLASE 2: El comentario no tiene asociado un un usuario,
+ * y no es agregado correctamente.
  * Falla: Si
  * Nombre: ComentarioNoAgregado
+ * 
+ * 
+ * CLASE 3: El usuario que agrega el comentario tiene la
+ * fecha actual
+ * Frontera: No
+ * Falla: No
+ * Nombre: ComentarioFechaActual
+ * 
+ * CLASE 4: El usuario que agrega el comentario tiene una
+ * fecha menor a la actual
+ * Frontera: No
+ * Falla: Si
+ * Nombre: ComentarioFechaInvallida
+ * 
  * 
  **/
 public class ComentariosTest {
@@ -44,21 +60,12 @@ public class ComentariosTest {
     }
     
     @Test
-    public void ComentarioAgregado(){
+    public void ComentarioAgregadoExitoso(){
        Usuario persona = new Usuario("felipe.losada@gmail.com","Felipe");
        Comentario comentarioAgregado = new Comentario(persona,"Esta muy chebre",Date.getDate());
         assertEquals(persona, comentarioAgregado.getAutor());
         assertEquals("Esta muy chebre",cometarioAgregado.getComentario());
         assertEquals(Date.getDate(), comentarioAgregado.getFechayHora());
     }
-
-    @Test
-    public void ComentarioNoAgregado(){
-        try{
-            Comentario comentarioAgregado = new Comentario(null,"Esta muy chebre",Date.getDate());
-        }catch(e ExcepcionServiciosForos){
-            
-        }
     }
-    
 }
