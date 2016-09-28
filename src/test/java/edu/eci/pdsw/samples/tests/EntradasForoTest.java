@@ -43,9 +43,7 @@ import static org.junit.Assert.*;
  * nombre:registrarNuevaEntradaForoDebeFuncionar
  */
 public class EntradasForoTest {
-    
-
-    
+       
     @Test
     public void registrarNuevaEntradaForoDebeFuncionar() throws ExcepcionServiciosForos{
        Usuario persona = new Usuario("johan9106@gmail.com","Johan");
@@ -57,5 +55,43 @@ public class EntradasForoTest {
        assertEquals(foros.consultarEntradaForo(0).getAutor(),persona);
        assertEquals(foros.consultarEntradaForo(0).getComentario(),"No me gusta");
     }
+    
+    @Test
+    public void registrarNuevaEntradaForoDebeFallar() throws ExcepcionServiciosForos{
+       Usuario persona = new Usuario();
+       Date date =new Date(2010,6,27);
+       EntradaForo entradaForo = new EntradaForo(12,persona,"No me gusta","Opinion",date);
+       ServiciosForoStub foros = new ServiciosForoStub();
+       foros.registrarNuevaEntradaForo(entradaForo);
+       assertEquals(foros.consultarEntradaForo(0).getTitulo(),"Opinion");
+       assertEquals(foros.consultarEntradaForo(0).getAutor(),persona);
+       assertEquals(foros.consultarEntradaForo(0).getComentario(),"No me gusta");
+    }
+    
+    @Test
+    public void consultarEntradasForoDebeDevolverTodasLasEntradas() throws ExcepcionServiciosForos{
+       Usuario persona = new Usuario();
+       Date date =new Date(2010,6,27);
+       EntradaForo entradaForo = new EntradaForo(12,persona,"No me gusta","Opinion",date);
+       ServiciosForoStub foros = new ServiciosForoStub();
+       foros.registrarNuevaEntradaForo(entradaForo);
+       List<EntradaForo> temp =new ArrayList<EntradaForo>();
+       List<EntradaForo> temp2 =new ArrayList<EntradaForo>();
+       temp=foros.consultarEntradasForo();
+       temp2.add(entradaForo);
+       assertEquals(temp.size(),temp2.size());
+    } 
+    
+      @Test
+    public void agregarRespuestaForoDebeFallar() throws ExcepcionServiciosForos{
+       Usuario persona = new Usuario();
+       Date date =new Date(2010,6,27);
+       EntradaForo entradaForo = new EntradaForo(12,persona,"No me gusta","Opinion",date);
+       ServiciosForoStub foros = new ServiciosForoStub();
+       foros.registrarNuevaEntradaForo(entradaForo);
+       List<EntradaForo> temp =new ArrayList<EntradaForo>();
+       List<EntradaForo> temp2 =new ArrayList<EntradaForo>();
+       assertEquals(temp.size(),temp2.size());
+    } 
     
 }
