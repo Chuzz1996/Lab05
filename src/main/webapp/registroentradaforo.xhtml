@@ -8,11 +8,31 @@
 
     <h:body>
         <h:form id="UsuariosActuales">
-            <h3 style ="margin-top: 0">Foros Registrado</h3>
-            <p:dataTable var ="Foros" value ="#{RegistroForo.sp}">
-                <p:column headerText ="Foro">
-                    <h:outputText value="#{Foros.consultarEntradasForo}"/>
-                </p:column>
+            <p:outputLabel value="#{RegistroBean.selectForo.identificador} #{RegistroBean.selectForo.autor} #{RegistroBean.selectForo.titulo}"/>
+            <p:layout style="min-width:400px;min-height:500px;">
+                <p:layoutUnit position="center" resizable="true" size="700" minSize="40" maxSize="1000">
+                    <p:dataTable id="todas_consultas" var="consulta" value="#{RegistroBean.sp}"  >
+                     <p:column headerText="Id">
+                        <h:outputText value="#{consulta.identificador}" />
+                    </p:column>
+
+                    <p:column headerText="Fecha y Hora">
+                        <h:outputText value="#{consulta.fechayHora}" />
+                    </p:column>
+
+                    <p:column headerText="Comentario">
+                        <h:outputText value="#{consulta.comentario}" />
+                    </p:column>
+                    <f:facet name="footer">
+                        Ano: <p:inputTextarea value="#{RegistroBean.ano}" maxlength="4"/>
+                        Mes: <p:inputTextarea value="#{RegistroBean.mes}" maxlength="2"/>
+                        Dia: <p:inputTextarea value="#{RegistroBean.dia}" maxlength="2"/>
+                        comentario: <p:inputTextarea value="#{RegistroBean.comentario}"/>
+                        <p:commandButton value="Agregar Cita" update=":formulario_consultas" actionListener="#{RegistroBean.agregarConsultaPaciente()}"/>
+                    </f:facet>
+                </p:dataTable>
+                </p:layoutUnit>
+             </p:layout>
         </h:form>
     </h:body>
 
