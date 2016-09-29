@@ -63,9 +63,10 @@ public class EntradasForoTest {
     @Test
     public void registrarNuevaEntradaForoDebeFallar() throws ExcepcionServiciosForos{
         Usuario usuario = new Usuario("johan.ramirez@gmail.com","Johan");
-        Comentario comentario = new Comentario(usuario,"Esta muy feo",new java.sql.Date(2016,9,28));
+        Comentario comentario = new Comentario(usuario,"no esta Esta muy feo",new java.sql.Date(2016,9,28));
         EntradaForo entrada = new EntradaForo(1, usuario, comentario.getContenido(), "Experiencia", new java.sql.Date(2016,9,28));
         entrada.agregarComentario(comentario);
+        assertEquals("Consulta comentario agregado correctamente",comentario.getContenido(), "no esta Esta muy feo");
        
     }
     
