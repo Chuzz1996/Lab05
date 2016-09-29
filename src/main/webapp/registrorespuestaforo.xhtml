@@ -29,7 +29,7 @@
                 
                 <h3 style="margin-top: 0">Ingrese el numero del id del Foro</h3>
                 <p:inputText value="#{RegistroBean.idforo}"/>
-                 <p:commandButton value="Agregar" update="Registro" actionListener="#{RegistroBean.getSelectForo()}" />
+                 <p:commandButton value="Buscar" update="Registro" actionListener="#{RegistroBean.cargeForo()}" />
             
             <h3/>
                         
@@ -39,7 +39,7 @@
                 <p:dataTable var="Respuestas" value="#{RegistroBean.respuesta}">
 
                 <p:column headerText="autor">
-                    <h:outputText value="#{Respuestas.autor}"/>
+                    <h:outputText value="#{Respuestas.autor.nombre}"/>
                 </p:column>
                     <p:column headerText="contenido">
                     <h:outputText value="#{Respuestas.contenido}"/>
@@ -50,10 +50,16 @@
  
             </p:dataTable> 
             <p:separator />
+                <h3 style="margin-top: 0">Datos para agregar un nuevo foro</h3>
+                <h3 style="margin-top: 0">Ingrese usuario</h3>
+                <p:inputText value="#{RegistroBean.nombreUsuario}"/>
+                <h3 style="margin-top: 0">Correo usuario</h3>
+                <p:inputText value="#{RegistroBean.correoUsuario}"/>
                  <h3 style="margin-top: 0">Ingrese el numero del id del Foro</h3>
                 <p:inputText value="#{RegistroBean.idforo}"/>
                 <h3 style="margin-top: 0">ingrese su comentario </h3>
-                <p:inputText value="#{RegistroBean.idforo}"/>
+                <p:inputText value="#{RegistroBean.contenido}"/>
+                <p:commandButton value="Agregar" update="Registro" actionListener="#{RegistroBean.agregarRespuesta()}" />
             <p:separator />
           </h:form>   
     </h:body>

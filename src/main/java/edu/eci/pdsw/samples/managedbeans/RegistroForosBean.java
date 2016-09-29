@@ -50,7 +50,15 @@ public class RegistroForosBean implements Serializable{
     public String CorreoUsuario;
     public String comentario;
     public String titulo;
-    
+    public String contenido;
+
+    public String getContenido() {
+        return contenido;
+    }
+
+    public void setContenido(String contenido) {
+        this.contenido = contenido;
+    }
     public EntradaForo entrada;
     private Set<Comentario> respuesta;
 
@@ -171,7 +179,7 @@ public class RegistroForosBean implements Serializable{
         }
     }
      public Set<Comentario> getRespuestas() {
-        respuesta=entrada.getRespuestas();
+
         return respuesta;
 
     }
@@ -185,5 +193,14 @@ public class RegistroForosBean implements Serializable{
         }
     }
      
+     public void agregarRespuesta() {
+        Calendar fecha = new GregorianCalendar();
+        java.util.Date fechaYhora = fecha.getTime();
+        try{
+            sp.agregarRespuestaForo(idforo,new Comentario(new Usuario(CorreoUsuario,NombreUsuario),contenido ,new Date(fechaYhora.getTime())));
+        }catch(ExcepcionServiciosForos ex){
+           
+        }
+    }
     
 }
