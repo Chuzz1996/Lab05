@@ -43,6 +43,14 @@ public class RegistroForosBean implements Serializable{
     public int mes;
     public int idforo;
 
+    public int getIdforo() {
+        return idforo;
+    }
+
+    public void setIdforo(int idforo) {
+        this.idforo = idforo;
+    }
+
     public int getAno() {
         return ano;
     }
