@@ -151,12 +151,10 @@ public class RegistroForosBean implements Serializable{
     }
     public void agregarForo(){
         Calendar fecha = new GregorianCalendar();
-        ano = fecha.get(Calendar.YEAR);
-        mes = fecha.get(Calendar.MONTH);
-        dia = fecha.get(Calendar.DATE);
+        java.util.Date JulianPuta  = fecha.getTime();
         Usuario nuevoUsuario = new Usuario(CorreoUsuario,NombreUsuario);
         try{
-            EntradaForo ef = new EntradaForo(sp.consultarEntradasForo().size(),nuevoUsuario,titulo,comentario,new Date(ano, mes, dia));
+            EntradaForo ef = new EntradaForo(sp.consultarEntradasForo().size(),nuevoUsuario,titulo,comentario,new Date(JulianPuta.getTime()));
             sp.registrarNuevaEntradaForo(ef);
         }catch(ExcepcionServiciosForos ex){
             
