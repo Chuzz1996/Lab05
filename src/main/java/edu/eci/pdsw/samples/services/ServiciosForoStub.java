@@ -50,6 +50,7 @@ public class ServiciosForoStub extends ServiciosForo{
 
     @Override
     public EntradaForo consultarEntradaForo(int id) throws ExcepcionServiciosForos {
+        //System.out.println(id+"  "+foros.);
         if (!foros.containsKey(id)){
             throw new ExcepcionServiciosForos("Entrada a foro inexistente:"+id);
         }
@@ -62,7 +63,8 @@ public class ServiciosForoStub extends ServiciosForo{
             f.setIdentificador(foroidcount);            
             foroidcount++;
         }
-        foros.put(f.getIdentificador(), f);        
+        usuarios.put(f.getAutor().getEmail(), f.getAutor());
+        foros.put(f.getIdentificador(), f);  
     }
 
     @Override

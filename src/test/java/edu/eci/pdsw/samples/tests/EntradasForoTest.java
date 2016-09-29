@@ -43,11 +43,11 @@ import static org.junit.Assert.*;
  * nombre:registrarNuevaEntradaForoDebeFuncionar
  */
 public class EntradasForoTest {
-      /**
+     /*
     @Test
     public void registrarNuevaEntradaForoDebeFuncionar() {
        Usuario persona = new Usuario("johan9106@gmail.com","Johan");
-       Date date =new Date(2010,6,27);
+       Date date =new java.sql.Date(2010,6,27);
        EntradaForo entradaForo = new EntradaForo(12,persona,"No me gusta","Opinion",date);
        ServiciosForoStub foros = new ServiciosForoStub();
        try{
@@ -59,7 +59,6 @@ public class EntradasForoTest {
            
        }
     }
-    
     @Test
     public void registrarNuevaEntradaForoDebeFallar(){
        Usuario persona = new Usuario();
@@ -107,6 +106,6 @@ public class EntradasForoTest {
        }catch(ExcepcionServiciosForos ex){
            
        }
-    } **/
+    }*/
     
 }

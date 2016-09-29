@@ -55,7 +55,7 @@ import static org.junit.Assert.*;
  * 
  **/
 public class ComentariosTest {
-    /*
+    
     @Test
     public void EntradaAlForo(){
        Usuario persona = new Usuario("felipe.losada@gmail.com","Felipe");
@@ -64,13 +64,25 @@ public class ComentariosTest {
            EntradaForo Ef = new EntradaForo(80, persona, comentarioAgregado.getContenido(), "Experiencia", new java.sql.Date(2016,9,28));
            ServiciosForoStub sft = new ServiciosForoStub();
            sft.registrarNuevaEntradaForo(Ef);
-           EntradaForo x = sft.consultarEntradaForo(80);
-           assertEquals("No consulta comentario agregado correctamente",x.getIdentificador(),Ef.getIdentificador());
+           EntradaForo x = sft.consultarEntradaForo(1);
+           assertEquals("Consulta comentario agregado correctamente",x.getIdentificador(),Ef.getIdentificador());
        }catch(ExcepcionServiciosForos ex){
-           fail("Arroja excepcion agregando consultando entrada al foro");
+           fail("No consulta foros agregado");
        }
-    }*/
+    }
     
+    @Test
+    public void RegistroDeEntradaForos(){
+        Usuario persona = new Usuario("felipe.losada@gmail.com","Felipe");
+        Comentario comentarioAgregado = new Comentario(persona,"Esta muy chebre",new java.sql.Date(2016,9,28));
+        try{
+            ServiciosForoStub sft = new ServiciosForoStub();
+            EntradaForo Ef = new EntradaForo(80, persona, comentarioAgregado.getContenido(), "Experiencia", new java.sql.Date(2016,9,28));
+            sft.registrarNuevaEntradaForo(Ef);
+        }catch(ExcepcionServiciosForos ex){
+            fail("No consulta foros agregado");
+        }
+    }
     
 }
 
