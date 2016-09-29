@@ -53,6 +53,14 @@ public class RegistroForosBean implements Serializable{
     
     public EntradaForo entrada;
     private Set<Comentario> respuesta;
+
+    public Set<Comentario> getRespuesta() {
+        return respuesta;
+    }
+
+    public void setRespuesta(Set<Comentario> respuesta) {
+        this.respuesta = respuesta;
+    }
     
     public String getTitulo() {
         return titulo;
