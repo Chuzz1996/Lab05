@@ -5,7 +5,65 @@
     <h:head></h:head>
 
     <h:body>
+        <h:form id="listaForos">
+            <h3 style="margin-top: 0">lista de Foros</h3>
+            <p:dataTable var="Foros" value="#{RegistroBean.sp}">
+
+                <p:column headerText="identificador">
+                    <h:outputText value="#{Foros.identificador}"/>
+                </p:column>
+                <p:column headerText="autor">
+                    <h:outputText value="#{Foros.autor}"/>
+                </p:column>
+                <p:column headerText="titulo">
+                <h:outputText value="#{Foros.titulo}"/>
+                </p:column>
+                 <p:column headerText="fecha y Hora">
+                    <h:outputText value="#{Foros.fechayHora}"/>
+                </p:column>
+                
+            </p:dataTable> 
+          </h:form>  
+        <h:form id="Registro">  
+            <p:separator />
+                
+                <h3 style="margin-top: 0">Ingrese el numero del id del Foro</h3>
+                <p:inputText value="#{RegistroBean.idforo}"/>
+                 <h3 style="margin-top: 0">Ingrese la cantidad</h3>
+                <h:panelGrid columns="1" style="margin-bottom: 10px">
+                    <p:inputText value="#{ShopingKart.cantidadEsperando}"/>
+                </h:panelGrid>
+                 <p:commandButton value="Agregar" update="pedidos" actionListener="#{ShopingKart.agregarProducto()}" />
+            
+            <h3/>
+                        
+        <h3/>
         
+        
+            <p:separator />
+                <h3 style="margin-top: 0">Respuestas del foro</h3>
+                <p:dataTable var="compras" value="#{ShopingKart.carrito}">
+
+                <p:column headerText="Id">
+                    <h:outputText value="#{compras.idProducto}"/>
+                </p:column>
+                <p:column headerText="Nombre">
+                    <h:outputText value="#{compras.nombre}"/>
+                </p:column>
+                <p:column headerText="Precio por unidad">
+                    <h:outputText value="#{compras.precio}"/>
+                </p:column>
+                <p:column headerText="Cantidad">
+                    <h:outputText value="#{compras.cantidad}"/>
+                </p:column>  
+                <p:column headerText="Precio por producto">
+                    <h:outputText value="#{compras.costo}"/>
+                </p:column>
+            </p:dataTable> 
+            <p:separator />
+            
+            <p:separator />
+          </h:form>   
     </h:body>
 
 </html>

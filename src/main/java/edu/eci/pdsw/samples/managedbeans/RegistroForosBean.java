@@ -41,6 +41,7 @@ public class RegistroForosBean implements Serializable{
     
     public int ano;
     public int mes;
+    public int idforo;
 
     public int getAno() {
         return ano;
@@ -88,7 +89,11 @@ public class RegistroForosBean implements Serializable{
     }
     
     public EntradaForo getSelectForo() {
-        return selectForo;
+        try{
+            return sp.consultarEntradaForo(this.idforo);
+        }catch(ExcepcionServiciosForos ex){
+            return null;
+        }
     }
     
     public void setSelectForo(EntradaForo selectedForo) {
