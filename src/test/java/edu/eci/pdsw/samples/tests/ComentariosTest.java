@@ -55,7 +55,7 @@ import static org.junit.Assert.*;
  * 
  **/
 public class ComentariosTest {
-    
+    /*
     @Test
     public void EntradaAlForo(){
        Usuario persona = new Usuario("felipe.losada@gmail.com","Felipe");
@@ -69,6 +69,8 @@ public class ComentariosTest {
        }catch(ExcepcionServiciosForos ex){
            fail("Arroja excepcion agregando consultando entrada al foro");
        }
-    }
+    }*/
+    
+    
 }
 

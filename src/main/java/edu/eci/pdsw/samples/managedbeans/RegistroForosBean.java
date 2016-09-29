@@ -1,4 +1,4 @@
-/*
+/*  
  * Copyright (C) 2016 hcadavid
  *
  * This program is free software: you can redistribute it and/or modify
@@ -17,8 +17,11 @@
 package edu.eci.pdsw.samples.managedbeans;
 
 
+import edu.eci.pdsw.samples.entities.EntradaForo;
+import edu.eci.pdsw.samples.services.ExcepcionServiciosForos;
 import edu.eci.pdsw.samples.services.ServiciosForo;
 import java.io.Serializable;
+import java.util.List;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 
@@ -32,12 +35,17 @@ public class RegistroForosBean implements Serializable{
     
     public static ServiciosForo sp=ServiciosForo.getInstance();
     
+    
     public void setSp(ServiciosForo sp){
         this.sp = sp;
     }
     
-    public ServiciosForo getSp(){
-        return sp;
+    public List<EntradaForo> getSp(){
+        try{
+            return sp.consultarEntradasForo();
+        }catch(ExcepcionServiciosForos ex){
+            return null;
+        }
     }
     
 }
