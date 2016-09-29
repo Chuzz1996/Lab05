@@ -15,7 +15,7 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 package edu.eci.pdsw.samples.managedbeans;
-
+    
 
 import edu.eci.pdsw.samples.entities.EntradaForo;
 import edu.eci.pdsw.samples.entities.Usuario;
@@ -24,6 +24,7 @@ import edu.eci.pdsw.samples.services.ServiciosForo;
 import java.io.Serializable;
 import java.sql.Date;
 import java.util.List;
+import java.util.*;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 
@@ -42,6 +43,43 @@ public class RegistroForosBean implements Serializable{
     public int ano;
     public int mes;
     public int idforo;
+    
+    public String NombreUsuario;
+    public String CorreoUsuario;
+    public String comentario;
+    public String titulo;
+    
+    public String getTitulo() {
+        return titulo;
+    }
+
+    public void setTitulo(String titulo) {
+        this.titulo = titulo;
+    }
+    
+    public String getComentario() {
+        return comentario;
+    }
+
+    public void setComentario(String comentario) {
+        this.comentario = comentario;
+    }
+    
+    public String getNombreUsuario(){
+        return NombreUsuario;
+    }
+    
+    public void setNombreUsuario(String usu){
+        this.NombreUsuario = usu;
+    }
+    
+    public String getCorreoUsuario(){
+        return CorreoUsuario;
+    }
+    
+    public void setCorreoUsuario(String usu){
+        this.CorreoUsuario = usu;
+    }
 
     public int getIdforo() {
         return idforo;
@@ -64,15 +102,6 @@ public class RegistroForosBean implements Serializable{
     }
     public int dia;
 
-
-    public String getComentario() {
-        return comentario;
-    }
-
-    public void setComentario(String comentario) {
-        this.comentario = comentario;
-    }
-
     public Usuario getAutor() {
         return autor;
     }
@@ -80,7 +109,6 @@ public class RegistroForosBean implements Serializable{
     public void setAutor(Usuario autor) {
         this.autor = autor;
     }
-    public String comentario;
     public Usuario autor;
     
     
@@ -106,6 +134,20 @@ public class RegistroForosBean implements Serializable{
     
     public void setSelectForo(EntradaForo selectedForo) {
         this.selectForo = selectedForo;
+    }
+    
+    public void agregarForo(){
+        Calendar fecha = new GregorianCalendar();
+        ano = fecha.get(Calendar.YEAR);
+        mes = fecha.get(Calendar.MONTH);
+        dia = fecha.get(Calendar.DATE);
+        Usuario nuevoUsuario = new Usuario(CorreoUsuario,NombreUsuario);
+        try{
+            EntradaForo ef = new EntradaForo(sp.consultarEntradasForo().size(),nuevoUsuario,titulo,comentario,new Date(ano, mes, dia));
+            sp.registrarNuevaEntradaForo(ef);
+        }catch(ExcepcionServiciosForos ex){
+            
+        }
     }
     
     
