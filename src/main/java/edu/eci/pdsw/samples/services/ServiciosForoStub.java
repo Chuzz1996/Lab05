@@ -69,8 +69,10 @@ public class ServiciosForoStub extends ServiciosForo{
 
     @Override
     public void agregarRespuestaForo(int idforo, Comentario c) throws ExcepcionServiciosForos {
-        EntradaForo f=foros.get(idforo);
-        f.getRespuestas().add(c);
+        if(foros.containsKey(idforo)){
+            EntradaForo f=foros.get(idforo);
+            f.getRespuestas().add(c);
+        }
     }
 
     @Override
