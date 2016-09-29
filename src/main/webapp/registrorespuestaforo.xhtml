@@ -34,14 +34,15 @@
             <h3/>
                         
         <h3/>
-        
-        
-            <p:separator />
+         <p:separator />
                 <h3 style="margin-top: 0">Respuestas del foro</h3>
-                <p:dataTable var="Respuestas" value="#{RegistroBean.respuestas}">
+                <p:dataTable var="Respuestas" value="#{RegistroBean.respuesta}">
 
                 <p:column headerText="autor">
                     <h:outputText value="#{Respuestas.autor}"/>
+                </p:column>
+                    <p:column headerText="contenido">
+                    <h:outputText value="#{Respuestas.contenido}"/>
                 </p:column>
                 <p:column headerText="fechayHora">
                     <h:outputText value="#{Respuestas.fechayHora}"/>
@@ -49,7 +50,10 @@
  
             </p:dataTable> 
             <p:separator />
-            
+                 <h3 style="margin-top: 0">Ingrese el numero del id del Foro</h3>
+                <p:inputText value="#{RegistroBean.idforo}"/>
+                <h3 style="margin-top: 0">ingrese su comentario </h3>
+                <p:inputText value="#{RegistroBean.idforo}"/>
             <p:separator />
           </h:form>   
     </h:body>

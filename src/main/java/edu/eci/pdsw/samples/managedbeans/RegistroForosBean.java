@@ -52,7 +52,7 @@ public class RegistroForosBean implements Serializable{
     public String titulo;
     
     public EntradaForo entrada;
-    private Set<Comentario> respuestas;
+    private Set<Comentario> respuesta;
     
     public String getTitulo() {
         return titulo;
@@ -163,9 +163,19 @@ public class RegistroForosBean implements Serializable{
         }
     }
      public Set<Comentario> getRespuestas() {
-        respuestas=entrada.getRespuestas();
-        return respuestas;
+        respuesta=entrada.getRespuestas();
+        return respuesta;
 
     }
+     
+    public void cargeForo() {
+        try{
+            entrada=sp.consultarEntradaForo(this.idforo);
+            respuesta=entrada.getRespuestas();
+        }catch(ExcepcionServiciosForos ex){
+           
+        }
+    }
+     
     
 }
