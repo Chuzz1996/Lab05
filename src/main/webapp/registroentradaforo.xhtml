@@ -27,7 +27,7 @@
                 </p:layoutUnit>
             <h3 style="margin-top: 0">Ingrese el numero del id del Foro que desea revisar</h3>
                 <p:inputText value="#{RegistroBean.idforo}"/>
-                <h:commandButton action="registrorespuestaforo" value="Consultar Foro" />
+                <h:commandButton action="registrorespuestaforo" value="Consultar Foro" actionListener="#{RegistroBean.cargeForo()}" />
             <p:separator />
             <h3 style="margin-top: 0">Datos para agregar un nuevo foro</h3>
             <h3 style="margin-top: 0">Ingrese usuario</h3>

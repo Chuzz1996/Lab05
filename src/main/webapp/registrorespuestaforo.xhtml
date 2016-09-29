@@ -5,34 +5,8 @@
     <h:head></h:head>
 
     <h:body>
-        <h:form id="listaForos">
-            <h3 style="margin-top: 0">lista de Foros</h3>
-            <p:dataTable var="Foros" value="#{RegistroBean.sp}">
-
-                <p:column headerText="identificador">
-                    <h:outputText value="#{Foros.identificador}"/>
-                </p:column>
-                <p:column headerText="autor">
-                    <h:outputText value="#{Foros.autor.nombre}"/>
-                </p:column>
-                <p:column headerText="titulo">
-                <h:outputText value="#{Foros.titulo}"/>
-                </p:column>
-                 <p:column headerText="fecha y Hora">
-                    <h:outputText value="#{Foros.fechayHora}"/>
-                </p:column>
-                
-            </p:dataTable> 
-          </h:form>  
-        <h:form id="Registro">  
-            <p:separator />
-                
-                <h3 style="margin-top: 0">Ingrese el numero del id del Foro</h3>
-                <p:inputText value="#{RegistroBean.idforo}"/>
-                 <p:commandButton value="Buscar" update="Registro" actionListener="#{RegistroBean.cargeForo()}" />
-            
-            <h3/>
-                        
+        <h:form id="Registro">
+                            
         <h3/>
          <p:separator />
                 <h3 style="margin-top: 0">Respuestas del foro</h3>
@@ -58,9 +32,10 @@
                  <h3 style="margin-top: 0">Ingrese el numero del id del Foro</h3>
                 <p:inputText value="#{RegistroBean.idforo}"/>
                 <h3 style="margin-top: 0">ingrese su comentario </h3>
-                <p:inputText value="#{RegistroBean.contenido}"/>
+                <p:inputText value="#{RegistroBean.contenido}"/><h3/>
                 <p:commandButton value="Agregar" update="Registro" actionListener="#{RegistroBean.agregarRespuesta()}" />
             <p:separator />
+            <h:commandButton action="registroentradaforo" value="Regresar" />
           </h:form>   
     </h:body>
 
