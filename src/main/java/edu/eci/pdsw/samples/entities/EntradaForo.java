@@ -107,6 +107,9 @@ public class EntradaForo implements Serializable {
         return "EntradaForo{" + "identificador=" + identificador + ", autor=" + autor + ", comentario=" + comentario + ", respuestas=" + respuestas + ", titulo=" + titulo + ", fechayHora=" + fechayHora + '}';
     }
 
+    public void agregarComentario(Comentario e) {
+        this.respuestas.add(e);
+    }
     
     
     
