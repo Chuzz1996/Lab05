@@ -17,6 +17,7 @@
 package edu.eci.pdsw.samples.managedbeans;
 
 
+import edu.eci.pdsw.samples.entities.Comentario;
 import edu.eci.pdsw.samples.entities.EntradaForo;
 import edu.eci.pdsw.samples.entities.Usuario;
 import edu.eci.pdsw.samples.services.ExcepcionServiciosForos;
@@ -24,6 +25,7 @@ import edu.eci.pdsw.samples.services.ServiciosForo;
 import java.io.Serializable;
 import java.sql.Date;
 import java.util.List;
+import java.util.Set;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 
@@ -42,6 +44,16 @@ public class RegistroForosBean implements Serializable{
     public int ano;
     public int mes;
     public int idforo;
+    public EntradaForo entrada;
+    private Set<Comentario> respuestas;
+
+    public EntradaForo getEntrada() {
+        return entrada;
+    }
+
+    public void setEntrada(EntradaForo entrada) {
+        this.entrada = entrada;
+    }
 
     public int getIdforo() {
         return idforo;
@@ -108,5 +120,10 @@ public class RegistroForosBean implements Serializable{
         this.selectForo = selectedForo;
     }
     
+     public Set<Comentario> getRespuestas() {
+        respuestas=entrada.getRespuestas();
+        return respuestas;
+
+    }
     
 }

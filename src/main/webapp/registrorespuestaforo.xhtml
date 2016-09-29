@@ -29,11 +29,7 @@
                 
                 <h3 style="margin-top: 0">Ingrese el numero del id del Foro</h3>
                 <p:inputText value="#{RegistroBean.idforo}"/>
-                 <h3 style="margin-top: 0">Ingrese la cantidad</h3>
-                <h:panelGrid columns="1" style="margin-bottom: 10px">
-                    <p:inputText value="#{ShopingKart.cantidadEsperando}"/>
-                </h:panelGrid>
-                 <p:commandButton value="Agregar" update="pedidos" actionListener="#{ShopingKart.agregarProducto()}" />
+                 <p:commandButton value="Agregar" update="Registro" actionListener="#{RegistroBean.getSelectForo()}" />
             
             <h3/>
                         
@@ -42,23 +38,15 @@
         
             <p:separator />
                 <h3 style="margin-top: 0">Respuestas del foro</h3>
-                <p:dataTable var="compras" value="#{ShopingKart.carrito}">
+                <p:dataTable var="Respuestas" value="#{RegistroBean.respuestas}">
 
-                <p:column headerText="Id">
-                    <h:outputText value="#{compras.idProducto}"/>
+                <p:column headerText="autor">
+                    <h:outputText value="#{Respuestas.autor}"/>
                 </p:column>
-                <p:column headerText="Nombre">
-                    <h:outputText value="#{compras.nombre}"/>
+                <p:column headerText="fechayHora">
+                    <h:outputText value="#{Respuestas.fechayHora}"/>
                 </p:column>
-                <p:column headerText="Precio por unidad">
-                    <h:outputText value="#{compras.precio}"/>
-                </p:column>
-                <p:column headerText="Cantidad">
-                    <h:outputText value="#{compras.cantidad}"/>
-                </p:column>  
-                <p:column headerText="Precio por producto">
-                    <h:outputText value="#{compras.costo}"/>
-                </p:column>
+ 
             </p:dataTable> 
             <p:separator />
             
